@@ -55,12 +55,21 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+
+      DatabaseReference ref = FirebaseDatabase.instance.reference();
+      ref.child('events').once().then((DataSnapshot snap) {
+        var keys = snap.value.keys;
+        var data = snap.value;
+        for (var key in keys) {
+          debugPrint(data[key]['name']);
+        };
+      });
     });
+
   }
 
   @override
   Widget build(BuildContext context) {
-    final mainReference = FirebaseDatabase.instance.reference();
 
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
@@ -103,7 +112,8 @@ class _MyHomePageState extends State<MyHomePage> {
               'I like Flutter!' ,
               style: new TextStyle(fontWeight: FontWeight.bold),
             ),
-            _buildRow("woot")
+            _buildRow("wooter"),
+            _buildRow("booper")
           ],
         ),
       ),
@@ -115,10 +125,10 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget _buildRow(String pair) {
+  Widget _buildRow(String rowTitle) {
     return new ListTile(
       title: new Text(
-        pair,
+        rowTitle,
         style: const TextStyle(fontSize: 18.0),
       ),
     );
