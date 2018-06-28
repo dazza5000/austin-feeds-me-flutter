@@ -62,31 +62,30 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(widget.title),
-      ),
-      body: new Container(
-          child: allData.length == 0
-              ? new Text(' No Data is Available')
-              : new ListView.builder(
-            itemCount: allData.length,
-            itemBuilder: (_, index) {
-              return _buildRow(allData[index].name);
-              );
-            },
-          )),
-    )
-  }
+@override
+Widget build(BuildContext context) {
+  return new Scaffold(
+    appBar: new AppBar(
+      title: new Text(widget.title),
+    ),
+    body: new Container(
+        child: allData.length == 0
+            ? new Text(' No Data is Available')
+            : new ListView.builder(
+          itemCount: allData.length,
+          itemBuilder: (_, index) {
+            return _buildRow(allData[index].name);
+          },
+        )),
+  );
+}
 
-  Widget _buildRow(String rowTitle) {
-    return new ListTile(
-      title: new Text(
-        rowTitle,
-        style: const TextStyle(fontSize: 18.0),
-      ),
-    );
-  }
+Widget _buildRow(String rowTitle) {
+  return new ListTile(
+    title: new Text(
+      rowTitle,
+      style: const TextStyle(fontSize: 18.0),
+    ),
+  );
+}
 }
