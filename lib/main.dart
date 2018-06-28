@@ -36,12 +36,15 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
 
     DatabaseReference ref = FirebaseDatabase.instance.reference();
-    ref.child('events').once().then((DataSnapshot snap) {
+    ref.child('events').orderByChild('time').once().then((DataSnapshot snap) {
       var keys = snap.value.keys;
       var data = snap.value;
       for (var key in keys) {
-        debugPrint(data[key]['name']);
-        allData.add(data[key]['name']);
+        if (data[key]['food'] &&
+            data[key]['time'] > new DateTime.now().millisecondsSinceEpoch) {
+          debugPrint(data[key]['name']);
+          allData.add(data[key]['name']);
+        }
       }
       setState(() {
         print(allData);
