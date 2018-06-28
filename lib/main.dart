@@ -4,6 +4,7 @@ import 'package:firebase_database/firebase_database.dart';
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -59,6 +60,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final mainReference = FirebaseDatabase.instance.reference();
+
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -96,7 +99,11 @@ class _MyHomePageState extends State<MyHomePage> {
             new Text(
               '$_counter',
               style: Theme.of(context).textTheme.display1,
+            ),new Text(
+              'I like Flutter!' ,
+              style: new TextStyle(fontWeight: FontWeight.bold),
             ),
+            _buildRow("woot")
           ],
         ),
       ),
@@ -105,6 +112,15 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: new Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+
+  Widget _buildRow(String pair) {
+    return new ListTile(
+      title: new Text(
+        pair,
+        style: const TextStyle(fontSize: 18.0),
+      ),
     );
   }
 }
