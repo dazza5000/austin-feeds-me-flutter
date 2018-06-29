@@ -113,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildRow(AustinFeedsMeEvent event) {
     DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(event.time);
-    String date = new DateFormat.MMMMEEEEd().format(dateTime);
+    String date = new DateFormat.MMMMd().format(dateTime);
     String time = new DateFormat.jm().format(dateTime);
 
     return new GestureDetector(
@@ -140,13 +140,15 @@ class _MyHomePageState extends State<MyHomePage> {
               new Expanded(
                 child: new Text(event.name, style: TextStyle(fontSize: 20.0,),),
               ),
-              new Column(
+        new SizedBox(
+          width: 150.0,
+              child: new Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
                   new Text(date, style: TextStyle(fontSize: 16.0,)),
                   new Text(time, style: TextStyle(fontSize: 16.0,)),
                 ],
-              ),
+              )),
               Padding(
                 padding: EdgeInsets.only(right: 8.0),
               ),
