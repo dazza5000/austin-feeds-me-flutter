@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
           currentTab =
               numTab; // Updating our currentTab with the tab that is pressed [See 43].
           currentPage = pages[
-              numTab]; // Updating the page that we'd like to show to the user.
+          numTab]; // Updating the page that we'd like to show to the user.
         });
       },
       items: <BottomNavigationBarItem>[
@@ -99,12 +99,12 @@ class _MyHomePageState extends State<MyHomePage> {
           child: events.length == 0
               ? new Center(child: new Text('Loading...'))
               : new ListView.builder(
-                  padding: const EdgeInsets.all(16.0),
-                  itemCount: events.length,
-                  itemBuilder: (_, index) {
-                    return _buildRow(events[index]);
-                  },
-                )),
+            padding: const EdgeInsets.all(16.0),
+            itemCount: events.length,
+            itemBuilder: (_, index) {
+              return _buildRow(events[index]);
+            },
+          )),
       bottomNavigationBar: new BottomAppBar(
         child: navBar,
       ),
@@ -120,17 +120,28 @@ class _MyHomePageState extends State<MyHomePage> {
     return new GestureDetector(
         child: new Card(
             child: new Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
-          new Expanded(
-            child: new Text(event.name),
-          ),
-          new Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              new Text(date),
-              new Text(time),
-            ],
-          ),
-        ])),
+              Padding(
+                padding: EdgeInsets.only(left: 8.0),
+              ),
+              Image.network(
+                'https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/lakes/images/lake.jpg',
+                width: 77.0,
+                height: 77.0,
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 8.0),
+              ),
+              new Expanded(
+                child: new Text(event.name, style: TextStyle(fontSize: 20.0,)),
+              ),
+              new Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  new Text(date),
+                  new Text(time),
+                ],
+              ),
+            ])),
         onTap: () => eventTapped(event));
   }
 
