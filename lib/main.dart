@@ -113,33 +113,42 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildRow(AustinFeedsMeEvent event) {
     DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(event.time);
-    String date = new DateFormat.yMMMMEEEEd().format(dateTime);
-
+    String date = new DateFormat.MMMMEEEEd().format(dateTime);
     String time = new DateFormat.jm().format(dateTime);
 
     return new GestureDetector(
         child: new Card(
             child: new Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(left: 8.0),
+                padding: EdgeInsets.only(left: 8.0,),
               ),
-              Image.network(
-                'https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/lakes/images/lake.jpg',
+              new Column(children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(top: 8.0,),
+                ),
+                  Image.network(
+                'https://picsum.photos/200?random',
                 width: 77.0,
                 height: 77.0,
               ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 8.0,),
+                ),]),
               Padding(
                 padding: EdgeInsets.only(left: 8.0),
               ),
               new Expanded(
-                child: new Text(event.name, style: TextStyle(fontSize: 20.0,)),
+                child: new Text(event.name, style: TextStyle(fontSize: 20.0,),),
               ),
               new Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
-                  new Text(date),
-                  new Text(time),
+                  new Text(date, style: TextStyle(fontSize: 16.0,)),
+                  new Text(time, style: TextStyle(fontSize: 16.0,)),
                 ],
+              ),
+              Padding(
+                padding: EdgeInsets.only(right: 8.0),
               ),
             ])),
         onTap: () => eventTapped(event));
