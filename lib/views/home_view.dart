@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:austin_feeds_me/views/event_map_view.dart';
 import 'package:austin_feeds_me/views/event_list_view.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:austin_feeds_me/views/event_map_view.dart';
+import 'package:flutter/material.dart';
 
 
 class HomeView extends StatefulWidget {
@@ -52,7 +51,6 @@ class HomeViewState extends State<HomeView> {
             icon: new Icon(Icons.map), title: new Text("Map")),
       ],
     );
-
 
     return new Scaffold(
       appBar: new AppBar(
