@@ -49,7 +49,7 @@ class _GoogleMaps extends State<EventMapView> {
 
     mapOverlayController = GoogleMapOverlayController.fromSize(
       width: mq.size.width,
-      height: mq.size.height,
+      height: 300.0,
       options: GoogleMapOptions(
         trackCameraPosition: true,
       ),
