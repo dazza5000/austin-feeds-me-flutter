@@ -94,8 +94,4 @@ class _GoogleMaps extends State<EventMapView> {
     buildMap();
     return renderMap();
   }
-
-  void _notifyPop(bool success) {
-    mapOverlayController.overlayController.activateOverlay();
-  }
 }
