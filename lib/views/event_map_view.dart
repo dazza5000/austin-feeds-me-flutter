@@ -47,9 +47,15 @@ class _GoogleMaps extends State<EventMapView> {
     // add delay so overlay is positioned correctly
     await new Future<Null>.delayed(new Duration(milliseconds: 20));
 
+    var mapHeight = (mq.size.height - 138.0);
+
+    debugPrint("navigationbarheight is: " +kBottomNavigationBarHeight.toString());
+    debugPrint("screen height is: " +mq.size.height.toString());
+    debugPrint("map height is: " +mapHeight.toString());
+
     mapOverlayController = GoogleMapOverlayController.fromSize(
       width: mq.size.width,
-      height: 300.0,
+      height: mapHeight,
       options: GoogleMapOptions(
         trackCameraPosition: true,
       ),
