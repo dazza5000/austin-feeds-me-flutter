@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:austin_feeds_me/model/location.dart';
 
 
 class EventMapView extends StatefulWidget {
@@ -18,6 +19,7 @@ final LatLng austinLatLng = new LatLng(30.2669444, -97.7427778);
 
 class _GoogleMaps extends State<EventMapView> {
     GoogleMapOverlayController mapOverlayController;
+    List<Location> locations = List<Location>();
 
     @override
     void dispose() {
@@ -37,6 +39,24 @@ class _GoogleMaps extends State<EventMapView> {
 
     @override
     void initState() {
+      locations.add(Location(
+          id: 1,
+          name: 'Sydney Opera House',
+          address1: 'Bennelong Point',
+          address2: 'Sydney NSW 2000, Australia',
+          lat: '-33.856159',
+          long: '151.215256',
+          imageUrl:
+          'https://www.planetware.com/photos-large/AUS/australia-sydney-opera-house-2.jpg'));
+      locations.add(Location(
+          id: 2,
+          name: 'Sydney Harbour Bridge',
+          address1: '',
+          address2: 'Sydney NSW, Australia',
+          lat: '-33.857013',
+          long: '151.207694',
+          imageUrl:
+          'https://www.planetware.com/photos-large/AUS/australia-sydney-harbour-bridge.jpg'));
       super.initState();
     }
 
@@ -70,6 +90,13 @@ class _GoogleMaps extends State<EventMapView> {
       );
       mapOverlayController.mapController.addListener(_onMapChanged);
       mapOverlayController.overlayController.activateOverlay();
+      locations.forEach((loc) {
+        mapOverlayController.mapController.addMarker(MarkerOptions(
+            zIndex: loc.id.toDouble(),
+            position: LatLng(double.parse(loc.lat), double.parse(loc.long)),
+            infoWindowText:
+            InfoWindowText(loc.name, loc.address1 + ', ' + loc.address2)));
+      });
       setState(() {});
     }
 
