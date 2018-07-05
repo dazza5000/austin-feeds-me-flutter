@@ -16,6 +16,8 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="austin_feeds_me"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDqUj4cLxF259RPcMC9d2F46SEv8qcVJhg"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

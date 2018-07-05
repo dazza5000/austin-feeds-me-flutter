@@ -3,7 +3,7 @@ import 'package:austin_feeds_me/views/home_view.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 void main() {
-  //GoogleMapController.init();
+  GoogleMapController.init();
   runApp(new AustinFeedsMeApp());
 }
 

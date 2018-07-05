@@ -1,32 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class EventMapView extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      body: GoogleMaps(),
-    );
-  }
-}
 
-class GoogleMaps extends StatefulWidget {
-  GoogleMaps({Key key}) : super(key: key);
+class EventMapView extends StatefulWidget {
+  EventMapView({Key key}) : super(key: key);
 
   @override
   _GoogleMaps createState() => new _GoogleMaps();
 }
 
-class _GoogleMaps extends State<GoogleMaps> {
-  CameraPosition _position;
-  GoogleMapOptions _options;
-  bool _isMoving;
+class _GoogleMaps extends State<EventMapView> {
   GoogleMapOverlayController mapOverlayController;
-
-  @override
-  void didUpdateWidget(GoogleMaps oldWidget) {
-    super.didUpdateWidget(oldWidget);
-  }
 
   @override
   void dispose() {
@@ -52,15 +36,8 @@ class _GoogleMaps extends State<GoogleMaps> {
   void _onMapChanged() {
     if (mounted) {
       setState(() {
-        _extractMapInfo();
       });
     }
-  }
-
-  void _extractMapInfo() {
-    _options = mapOverlayController.mapController.options;
-    _position = mapOverlayController.mapController.cameraPosition;
-    _isMoving = mapOverlayController.mapController.isCameraMoving;
   }
 
   void buildMap() async {
