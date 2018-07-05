@@ -9,6 +9,13 @@ class EventMapView extends StatefulWidget {
   _GoogleMaps createState() => new _GoogleMaps();
 }
 
+final LatLngBounds sydneyBounds = LatLngBounds(
+  southwest: const LatLng(-34.022631, 150.620685),
+  northeast: const LatLng(-33.571835, 151.325952),
+);
+
+final LatLng austinLatLng = new LatLng(30.2669444, -97.7427778);
+
 class _GoogleMaps extends State<EventMapView> {
     GoogleMapOverlayController mapOverlayController;
 
@@ -57,6 +64,7 @@ class _GoogleMaps extends State<EventMapView> {
         width: mq.size.width,
         height: mapHeight,
         options: GoogleMapOptions(
+          cameraPosition: new CameraPosition(target: austinLatLng, zoom: 14.0),
           trackCameraPosition: true,
         ),
       );
