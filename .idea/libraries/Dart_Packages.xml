@@ -114,6 +114,13 @@
             </list>
           </value>
         </entry>
+        <entry key="google_maps_flutter">
+          <value>
+            <list>
+              <option value="$USER_HOME$/Downloads/flutter/.pub-cache/git/plugins-2118a69682b7681a677d1e4cbe85f9e15d2c7b1e/packages/google_maps_flutter/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="html">
           <value>
             <list>
@@ -404,6 +411,7 @@
       </option>
     </properties>
     <CLASSES>
+      <root url="file://$USER_HOME$/Downloads/flutter/.pub-cache/git/plugins-2118a69682b7681a677d1e4cbe85f9e15d2c7b1e/packages/google_maps_flutter/lib" />
       <root url="file://$USER_HOME$/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/analyzer-0.31.2-alpha.2/lib" />
       <root url="file://$USER_HOME$/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/args-1.4.3/lib" />
       <root url="file://$USER_HOME$/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.0.7/lib" />

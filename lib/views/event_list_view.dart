@@ -101,7 +101,7 @@ class _EventListViewState extends State<EventListView> {
                 ),
               ),
               new SizedBox(
-                  width: 80.0,
+                  width: 100.0,
                   child: new Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[

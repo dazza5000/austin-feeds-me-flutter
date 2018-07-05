@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:austin_feeds_me/event_map_view.dart';
-import 'package:austin_feeds_me/event_list_view.dart';
+import 'package:austin_feeds_me/views/event_map_view.dart';
+import 'package:austin_feeds_me/views/event_list_view.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 
 class HomeView extends StatefulWidget {
   HomeView({Key key, this.title}) : super(key: key);
@@ -18,7 +20,6 @@ class HomeViewState extends State<HomeView> {
   EventMapView mapPage = new EventMapView();
   List<Widget> pages;
   Widget currentPage;
-
 
   @override
   void initState() {
