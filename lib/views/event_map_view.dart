@@ -97,6 +97,11 @@ class _GoogleMaps extends State<EventMapView> {
             infoWindowText:
             InfoWindowText(loc.name, loc.address1 + ', ' + loc.address2)));
       });
+      mapOverlayController.mapController.onInfoWindowTapped.add((Marker marker) {
+        mapOverlayController.overlayController.deactivateOverlay();
+        var index = marker.options.zIndex.toInt() - 1;
+        debugPrint(locations[index].toString());
+      });
       setState(() {});
     }
 
@@ -107,15 +112,6 @@ class _GoogleMaps extends State<EventMapView> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 150.0,
-                    width: 150.0,
-                    child: new CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.redAccent),
-                      value: null,
-                      strokeWidth: 7.0,
-                    ),
-                  ),
                   new Container(
                     margin: const EdgeInsets.only(top: 25.0),
                     child: new Center(
