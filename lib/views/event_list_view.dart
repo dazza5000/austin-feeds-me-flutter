@@ -31,7 +31,8 @@ class _EventListViewState extends State<EventListView> {
               name: data[key]['name'],
               time: data[key]['time'],
               description: data[key]['description'],
-              url: data[key]['event_url']));
+              url: data[key]['event_url'],
+              photoUrl: _getEventPhotoUrl(data[key]['group'])));
         }
       }
       setState(() {
@@ -41,6 +42,21 @@ class _EventListViewState extends State<EventListView> {
         print("allData length is: " + events.length.toString());
       });
     });
+  }
+
+  String _getEventPhotoUrl(Map<dynamic, dynamic> data) {
+    String defaultImage = "";
+    if (data == null) {
+      return defaultImage;
+    }
+
+    Map<dynamic, dynamic> groupPhotoObject = data['groupPhoto'];
+    if (groupPhotoObject == null) {
+      return defaultImage;
+    }
+
+    String photoUrl = groupPhotoObject['photoUrl'];
+    return photoUrl;
   }
 
   @override
@@ -78,8 +94,13 @@ class _EventListViewState extends State<EventListView> {
                     top: 8.0,
                   ),
                 ),
+                event.photoUrl.isNotEmpty ?
                 Image.network(
-                  'https://picsum.photos/200?random',
+                  event.photoUrl,
+                  width: 77.0,
+                  height: 77.0,
+                ) : Image.asset(
+                  'assets/ic_logo.png',
                   width: 77.0,
                   height: 77.0,
                 ),
