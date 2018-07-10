@@ -139,8 +139,12 @@ class _EventListViewState extends State<EventListView> {
     return event.photoUrl.isNotEmpty ?
     new CachedNetworkImage(
       imageUrl: event.photoUrl,
-      placeholder: new CircularProgressIndicator(),
-      errorWidget: new Icon(Icons.error, size: 77.0),
+      placeholder: Image.asset(
+        'assets/ic_logo.png',
+        width: 77.0,
+        height: 77.0,
+      ),
+      errorWidget: new Icon(Icons.error),
       width: 77.0,
       height: 77.0,
     ) : Image.asset(
