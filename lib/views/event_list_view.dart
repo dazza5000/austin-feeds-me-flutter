@@ -94,16 +94,7 @@ class _EventListViewState extends State<EventListView> {
                     top: 8.0,
                   ),
                 ),
-                event.photoUrl.isNotEmpty ?
-                Image.network(
-                  event.photoUrl,
-                  width: 77.0,
-                  height: 77.0,
-                ) : Image.asset(
-                  'assets/ic_logo.png',
-                  width: 77.0,
-                  height: 77.0,
-                ),
+                getEventImageWidget(event),
                 Padding(
                   padding: EdgeInsets.only(
                     bottom: 8.0,
@@ -141,6 +132,19 @@ class _EventListViewState extends State<EventListView> {
               ),
             ])),
         onTap: () => eventTapped(event));
+  }
+
+  Image getEventImageWidget(AustinFeedsMeEvent event) {
+    return event.photoUrl.isNotEmpty ?
+              Image.network(
+                event.photoUrl,
+                width: 77.0,
+                height: 77.0,
+              ) : Image.asset(
+                'assets/ic_logo.png',
+                width: 77.0,
+                height: 77.0,
+              );
   }
 
   eventTapped(AustinFeedsMeEvent event) {

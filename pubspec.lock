@@ -8,6 +8,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.31.2-alpha.2"
+  ansicolor:
+    dependency: transitive
+    description:
+      name: ansicolor
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.10"
   args:
     dependency: transitive
     description:
@@ -29,6 +36,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
+  browser:
+    dependency: transitive
+    description:
+      name: browser
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.10.0+3"
   charcode:
     dependency: transitive
     description:
@@ -43,6 +57,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.14.6"
+  console_log_handler:
+    dependency: transitive
+    description:
+      name: console_log_handler
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.7"
   convert:
     dependency: transitive
     description:
@@ -90,6 +111,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_map:
+    dependency: "direct main"
+    description:
+      name: flutter_map
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.10"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -109,15 +137,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.5"
-  google_maps_flutter:
-    dependency: "direct main"
-    description:
-      path: "packages/google_maps_flutter"
-      ref: HEAD
-      resolved-ref: "2118a69682b7681a677d1e4cbe85f9e15d2c7b1e"
-      url: "git://github.com/flutter/plugins"
-    source: git
-    version: "0.0.1"
   html:
     dependency: transitive
     description:
@@ -174,6 +193,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.0-alpha.12"
+  latlong:
+    dependency: transitive
+    description:
+      name: latlong
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.5"
   logging:
     dependency: transitive
     description:
@@ -181,6 +207,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.11.3+1"
+  logging_handlers:
+    dependency: transitive
+    description:
+      name: logging_handlers
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.8.0"
   matcher:
     dependency: transitive
     description:
@@ -265,6 +298,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.29.0+1"
+  quiver_hashcode:
+    dependency: transitive
+    description:
+      name: quiver_hashcode
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   shelf:
     dependency: transitive
     description:
@@ -340,6 +380,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  supports_color:
+    dependency: transitive
+    description:
+      name: supports_color
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.1"
   term_glyph:
     dependency: transitive
     description:
@@ -354,6 +401,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.12.37"
+  transparent_image:
+    dependency: transitive
+    description:
+      name: transparent_image
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
+  tuple:
+    dependency: transitive
+    description:
+      name: tuple
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   typed_data:
     dependency: transitive
     description:
@@ -375,6 +436,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.0+4"
+  validate:
+    dependency: transitive
+    description:
+      name: validate
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.6.0"
   vector_math:
     dependency: transitive
     description:
@@ -405,4 +473,4 @@ packages:
     version: "2.1.13"
 sdks:
   dart: ">=2.0.0-dev.52.0 <=2.0.0-dev.58.0.flutter-f981f09760"
-  flutter: ">=0.3.0 <2.0.0"
+  flutter: ">=0.1.4 <2.0.0"
