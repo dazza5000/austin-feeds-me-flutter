@@ -3,6 +3,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class EventListView extends StatefulWidget {
 
@@ -134,17 +135,19 @@ class _EventListViewState extends State<EventListView> {
         onTap: () => eventTapped(event));
   }
 
-  Image getEventImageWidget(AustinFeedsMeEvent event) {
+  Widget getEventImageWidget(AustinFeedsMeEvent event) {
     return event.photoUrl.isNotEmpty ?
-              Image.network(
-                event.photoUrl,
-                width: 77.0,
-                height: 77.0,
-              ) : Image.asset(
-                'assets/ic_logo.png',
-                width: 77.0,
-                height: 77.0,
-              );
+    new CachedNetworkImage(
+      imageUrl: event.photoUrl,
+      placeholder: new CircularProgressIndicator(),
+      errorWidget: new Icon(Icons.error, size: 77.0),
+      width: 77.0,
+      height: 77.0,
+    ) : Image.asset(
+      'assets/ic_logo.png',
+      width: 77.0,
+      height: 77.0,
+    );
   }
 
   eventTapped(AustinFeedsMeEvent event) {

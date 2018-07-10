@@ -8,6 +8,7 @@ dependencies:
   url_launcher: ^3.0.2
   intl: ^0.15.6
   flutter_map: "^0.0.10"
+  cached_network_image: "^0.4.1+1"
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
