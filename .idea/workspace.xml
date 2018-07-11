@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ff132b0-bd12-4071-8e61-934787a5db5b" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/android/app/google-services.json" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/austin_feeds_me.iml" afterPath="$PROJECT_DIR$/austin_feeds_me.iml" />
-      <change beforePath="$PROJECT_DIR$/austin_feeds_me_android.iml" afterPath="$PROJECT_DIR$/austin_feeds_me_android.iml" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" afterPath="$PROJECT_DIR$/pubspec.lock" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -36,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="event_map_view.dart" pinned="false" current-in-tab="false">
+      <file leaf-file-name="event_map_view.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/views/event_map_view.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+            <state relative-caret-position="30">
+              <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -58,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="google-services.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="google-services.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/android/app/google-services.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="111" column="1" lean-forward="false" selection-start-line="111" selection-start-column="1" selection-end-line="111" selection-end-column="1" />
+            <state relative-caret-position="185">
+              <caret line="79" column="22" lean-forward="false" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -247,7 +242,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="show.migrate.to.gradle.popup" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="pubspec.yaml&#9;FILE&#9;file:///Users/darrankelinske/source/flutter/austin-feeds-me-flutter/pubspec.yaml&#10;.plist&#9;FILE&#9;file:///Users/darrankelinske/source/flutter/austin-feeds-me-flutter/ios/.symlinks/plugins/firebase_database/example/ios/Runner/GoogleService-Info.plist&#10;android&#9;FILE&#9;file:///Users/darrankelinske/source/flutter/austin-feeds-me-flutter/android/app/src/main/AndroidManifest.xml&#10;GlobalKey&#9;null&#9;null&#10;bottom&#9;FILE&#9;file:///Users/dkelinske/source/flutter/flutter/packages/flutter/lib/src/material/bottom_navigation_bar.dart&#10;home&#9;FILE&#9;file:///Users/dkelinske/source/homeaway/austin_feeds_me/lib/views/home_view.dart&#10;main.&#9;FILE&#9;file:///Users/dkelinske/source/homeaway/austin_feeds_me/lib/main.dart&#10;event_&#9;FILE&#9;file:///Users/dkelinske/source/homeaway/austin_feeds_me/lib/views/event_map_view.dart&#10;androidma&#9;FILE&#9;file:///media/development/source/flutter/austin-feeds-me-flutter/android/app/src/main/AndroidManifest.xml&#10;pubspec&#9;FILE&#9;file:///Users/dkelinske/source/homeaway/austin_feeds_me/pubspec.yaml&#10;plist&#9;FILE&#9;file:///Users/dkelinske/source/homeaway/austin_feeds_me/ios/.symlinks/plugins/firebase_database/example/ios/Runner/GoogleService-Info.plist&#10;main.dart&#9;FILE&#9;file:///Users/dkelinske/source/homeaway/austin_feeds_me/lib/main.dart&#10;androidmani&#9;FILE&#9;file:///Users/dkelinske/source/homeaway/austin_feeds_me/ios/.symlinks/plugins/firebase_core/android/src/main/AndroidManifest.xml&#10;pubspec.&#9;FILE&#9;file:///Users/dkelinske/source/homeaway/austin_feeds_me/pubspec.yaml" />
+    <property name="SearchEverywhereHistoryKey" value="mapview&#9;FILE&#9;file:///Users/dkelinske/source/flutter/austin-feeds-me-flutter/lib/views/event_map_view.dart&#10;pubspec.yaml&#9;FILE&#9;file:///Users/darrankelinske/source/flutter/austin-feeds-me-flutter/pubspec.yaml&#10;.plist&#9;FILE&#9;file:///Users/darrankelinske/source/flutter/austin-feeds-me-flutter/ios/.symlinks/plugins/firebase_database/example/ios/Runner/GoogleService-Info.plist&#10;android&#9;FILE&#9;file:///Users/darrankelinske/source/flutter/austin-feeds-me-flutter/android/app/src/main/AndroidManifest.xml&#10;GlobalKey&#9;null&#9;null&#10;bottom&#9;FILE&#9;file:///Users/dkelinske/source/flutter/flutter/packages/flutter/lib/src/material/bottom_navigation_bar.dart&#10;home&#9;FILE&#9;file:///Users/dkelinske/source/homeaway/austin_feeds_me/lib/views/home_view.dart&#10;main.&#9;FILE&#9;file:///Users/dkelinske/source/homeaway/austin_feeds_me/lib/main.dart&#10;event_&#9;FILE&#9;file:///Users/dkelinske/source/homeaway/austin_feeds_me/lib/views/event_map_view.dart&#10;androidma&#9;FILE&#9;file:///media/development/source/flutter/austin-feeds-me-flutter/android/app/src/main/AndroidManifest.xml&#10;pubspec&#9;FILE&#9;file:///Users/dkelinske/source/homeaway/austin_feeds_me/pubspec.yaml&#10;plist&#9;FILE&#9;file:///Users/dkelinske/source/homeaway/austin_feeds_me/ios/.symlinks/plugins/firebase_database/example/ios/Runner/GoogleService-Info.plist&#10;main.dart&#9;FILE&#9;file:///Users/dkelinske/source/homeaway/austin_feeds_me/lib/main.dart&#10;androidmani&#9;FILE&#9;file:///Users/dkelinske/source/homeaway/austin_feeds_me/ios/.symlinks/plugins/firebase_core/android/src/main/AndroidManifest.xml&#10;pubspec.&#9;FILE&#9;file:///Users/dkelinske/source/homeaway/austin_feeds_me/pubspec.yaml" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
   </component>
   <component name="RecentsManager">
@@ -383,14 +378,16 @@
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22379604" sideWeight="0.49409115" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29367328" sideWeight="0.50277007" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Dart Analysis" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2557298" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2625118" sideWeight="0.83864266" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293124" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5452352" sideWeight="0.48039913" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293124" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22195417" sideWeight="0.48039913" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Flutter Outline" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994527" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27667612" sideWeight="0.6042654" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -406,10 +403,8 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Dart Analysis" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2557298" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22379604" sideWeight="0.49409115" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24740125" sideWeight="0.49721116" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Fabric" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -499,14 +494,6 @@
     <entry file="file://$USER_HOME$/Downloads/flutter/bin/cache/pkg/sky_engine/lib/core/map.dart" />
     <entry file="file://$USER_HOME$/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database-1.0.1/lib/src/event.dart" />
     <entry file="file://$PROJECT_DIR$/ios/.symlinks/plugins/firebase_database/example/ios/Runner/GoogleService-Info.plist" />
-    <entry file="file://$PROJECT_DIR$/lib/views/event_map_view.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -537,8 +524,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/android/app/google-services.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="111" column="1" lean-forward="false" selection-start-line="111" selection-start-column="1" selection-end-line="111" selection-end-column="1" />
+        <state relative-caret-position="185">
+          <caret line="79" column="22" lean-forward="false" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/views/event_map_view.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
