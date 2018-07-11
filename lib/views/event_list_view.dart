@@ -1,9 +1,10 @@
 import 'package:austin_feeds_me/model/austin_feeds_me_event.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:austin_feeds_me/data/events_repository.dart';
+
 
 class EventListView extends StatefulWidget {
 
@@ -12,52 +13,21 @@ class EventListView extends StatefulWidget {
 }
 
 class _EventListViewState extends State<EventListView> {
-  List<AustinFeedsMeEvent> events = [];
+  List<AustinFeedsMeEvent> events;
 
   @override
   void initState() {
     super.initState();
 
-    DatabaseReference ref = FirebaseDatabase.instance.reference();
-    ref.child('events')
-        .orderByChild('time')
-        .startAt(new DateTime.now().millisecondsSinceEpoch)
-        .once()
-        .then((DataSnapshot snap) {
-      var keys = snap.value.keys;
-      var data = snap.value;
-      for (var key in keys) {
-        if (data[key]['food']) {
-          events.add(new AustinFeedsMeEvent(
-              name: data[key]['name'],
-              time: data[key]['time'],
-              description: data[key]['description'],
-              url: data[key]['event_url'],
-              photoUrl: _getEventPhotoUrl(data[key]['group'])));
-        }
-      }
+    EventRepository.getEvents().then((List<AustinFeedsMeEvent> events) {
       setState(() {
-        events.sort((a, b) {
+        this.events = events;
+        this.events.sort((a, b) {
           return a.time.compareTo(b.time);
         });
         print("allData length is: " + events.length.toString());
       });
-    });
-  }
-
-  String _getEventPhotoUrl(Map<dynamic, dynamic> data) {
-    String defaultImage = "";
-    if (data == null) {
-      return defaultImage;
-    }
-
-    Map<dynamic, dynamic> groupPhotoObject = data['groupPhoto'];
-    if (groupPhotoObject == null) {
-      return defaultImage;
-    }
-
-    String photoUrl = groupPhotoObject['photoUrl'];
-    return photoUrl;
+      });
   }
 
   @override
