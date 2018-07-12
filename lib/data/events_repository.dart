@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:austin_feeds_me/model/austin_feeds_me_event.dart';
 import 'package:firebase_database/firebase_database.dart';
-
+import 'package:latlong/latlong.dart';
 
 class EventRepository {
 
@@ -24,7 +24,8 @@ class EventRepository {
               time: data[key]['time'],
               description: data[key]['description'],
               url: data[key]['event_url'],
-              photoUrl: _getEventPhotoUrl(data[key]['group'])));
+              photoUrl: _getEventPhotoUrl(data[key]['group']),
+          latLng: _getLatLng(data[key])));
         }
       }
     });
@@ -44,6 +45,20 @@ class EventRepository {
 
     String photoUrl = groupPhotoObject['photoUrl'];
     return photoUrl;
+  }
+
+  static LatLng _getLatLng(Map<dynamic, dynamic> data) {
+    LatLng defaultLocation = new LatLng(0.0, 0.0);
+    if (data == null) {
+      return defaultLocation;
+    }
+
+    Map<dynamic, dynamic> venueObject = data['venue'];
+    if (venueObject == null) {
+      return defaultLocation;
+    }
+
+    return new LatLng(venueObject['lat'], venueObject['lon']);
   }
 
 }

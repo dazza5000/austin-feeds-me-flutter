@@ -13,7 +13,7 @@ class EventListView extends StatefulWidget {
 }
 
 class _EventListViewState extends State<EventListView> {
-  List<AustinFeedsMeEvent> events;
+  List<AustinFeedsMeEvent> events = [];
 
   @override
   void initState() {

@@ -1,5 +1,6 @@
+import 'package:austin_feeds_me/data/events_repository.dart';
+import 'package:austin_feeds_me/model/austin_feeds_me_event.dart';
 import 'package:flutter/material.dart';
-import 'package:austin_feeds_me/model/location.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong/latlong.dart';
 
@@ -20,29 +21,32 @@ class EventMapView extends StatefulWidget {
 //final LatLng austinLatLng = new LatLng(30.2669444, -97.7427778);
 
 class _Maps extends State<EventMapView> {
-    List<Location> locations = List<Location>();
+    List<Marker> markers = [];
 
     @override
     void initState() {
-      locations.add(Location(
-          id: 1,
-          name: 'Sydney Opera House',
-          address1: 'Bennelong Point',
-          address2: 'Sydney NSW 2000, Australia',
-          lat: '-33.856159',
-          long: '151.215256',
-          imageUrl:
-          'https://www.planetware.com/photos-large/AUS/australia-sydney-opera-house-2.jpg'));
-      locations.add(Location(
-          id: 2,
-          name: 'Sydney Harbour Bridge',
-          address1: '',
-          address2: 'Sydney NSW, Australia',
-          lat: '-33.857013',
-          long: '151.207694',
-          imageUrl:
-          'https://www.planetware.com/photos-large/AUS/australia-sydney-harbour-bridge.jpg'));
       super.initState();
+
+      EventRepository.getEvents().then((List<AustinFeedsMeEvent> events) {
+          List<Marker> markers = [];
+          for (var currentEvent in events) {
+            Marker currentMarker = new Marker(
+              width: 77.0,
+              height: 77.0,
+              point: currentEvent.latLng,
+              builder: (ctx) => new Container(
+                child: new Text(currentEvent.name),
+              ),
+            );
+            markers.add(currentMarker);
+            print("markers location is: " + currentMarker.point.toString());
+          }
+          setState(() {
+          this.markers = markers;
+          print("markers length is: " + markers.length.toString());
+        });
+      });
+
     }
 
     @override
@@ -57,6 +61,7 @@ class _Maps extends State<EventMapView> {
       urlTemplate:
       "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
           subdomains: ['a', 'b', 'c'],
-      )]);
+      ),
+      new MarkerLayerOptions(markers: markers)]);
     }
 }
