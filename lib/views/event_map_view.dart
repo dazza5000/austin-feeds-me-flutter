@@ -35,6 +35,9 @@ class _Maps extends State<EventMapView> {
               height: 77.0,
               point: currentEvent.latLng,
               builder: (ctx) => new Container(
+                color: Colors.white,
+                width: 70.0,
+                height: 70.0,
                 child: new Text(currentEvent.name),
               ),
             );

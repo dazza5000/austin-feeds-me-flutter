@@ -58,7 +58,8 @@ class EventRepository {
       return defaultLocation;
     }
 
-    return new LatLng(venueObject['lat'], venueObject['lon']);
+    return new LatLng(double.parse(venueObject['lat']),
+        double.parse(venueObject['lon']));
   }
 
 }
