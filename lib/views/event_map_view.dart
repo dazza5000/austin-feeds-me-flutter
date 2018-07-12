@@ -3,6 +3,7 @@ import 'package:austin_feeds_me/model/austin_feeds_me_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong/latlong.dart';
+import 'package:austin_feeds_me/util/url_util.dart';
 
 
 
@@ -12,13 +13,6 @@ class EventMapView extends StatefulWidget {
   @override
   _Maps createState() => new _Maps();
 }
-
-//final LatLngBounds sydneyBounds = LatLngBounds(
-//  southwest: const LatLng(-34.022631, 150.620685),
-//  northeast: const LatLng(-33.571835, 151.325952),
-//);
-//
-//final LatLng austinLatLng = new LatLng(30.2669444, -97.7427778);
 
 class _Maps extends State<EventMapView> {
     List<Marker> markers = [];
@@ -31,25 +25,22 @@ class _Maps extends State<EventMapView> {
           List<Marker> markers = [];
           for (var currentEvent in events) {
             Marker currentMarker = new Marker(
-              width: 77.0,
-              height: 77.0,
+              width: 30.0,
+              height: 30.0,
               point: currentEvent.latLng,
-              builder: (ctx) => new Container(
-                color: Colors.white,
-                width: 70.0,
-                height: 70.0,
-                child: new Text(currentEvent.name),
+              builder: (ctx) => new GestureDetector(child:Image.asset(
+                  'assets/ic_logo.png',
+                  width: 30.0,
+                  height: 30.0,
               ),
-            );
+                onTap: () => UrlUtil.launchURL(currentEvent.url),
+            ));
             markers.add(currentMarker);
-            print("markers location is: " + currentMarker.point.toString());
           }
           setState(() {
           this.markers = markers;
-          print("markers length is: " + markers.length.toString());
         });
       });
-
     }
 
     @override

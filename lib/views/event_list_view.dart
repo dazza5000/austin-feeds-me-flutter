@@ -1,9 +1,9 @@
 import 'package:austin_feeds_me/model/austin_feeds_me_event.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:austin_feeds_me/data/events_repository.dart';
+import 'package:austin_feeds_me/util/url_util.dart';
 
 
 class EventListView extends StatefulWidget {
@@ -125,14 +125,6 @@ class _EventListViewState extends State<EventListView> {
   }
 
   eventTapped(AustinFeedsMeEvent event) {
-    _launchURL(event.url);
-  }
-}
-
-_launchURL(String url) async {
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
+    UrlUtil.launchURL(event.url);
   }
 }
