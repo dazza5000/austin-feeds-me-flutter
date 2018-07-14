@@ -4,7 +4,7 @@ description: A new Flutter application.
 dependencies:
   flutter:
     sdk: flutter
-  firebase_database: ^1.0.1
+  cloud_firestore: "^0.7.3"
   url_launcher: ^3.0.2
   intl: ^0.15.6
   flutter_map: "^0.0.10"

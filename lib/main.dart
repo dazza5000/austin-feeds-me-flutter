@@ -1,5 +1,5 @@
 import 'package:austin_feeds_me/views/home_view.dart';
-import 'package:firebase_database/firebase_database.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,7 +10,6 @@ class AustinFeedsMeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FirebaseDatabase.instance.setPersistenceEnabled(true);
 
     return new MaterialApp(
       title: 'Austin Feeds Me',
