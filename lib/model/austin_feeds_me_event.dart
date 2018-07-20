@@ -2,13 +2,22 @@ import 'package:latlong/latlong.dart';
 import 'package:meta/meta.dart';
 
 class AustinFeedsMeEvent {
+  final String columnId = "_id";
+  final String columnName = "name";
+  final String columnTime = "time";
+  final String columnDescription = "description";
+  final String columnUrl = "url";
+  final String columnPhotoUrl = "photo";
+  final String columnLat = "lat";
+  final String columnLng = "lng";
+
   AustinFeedsMeEvent({
     @required this.name,
     @required this.time,
     this.description,
     this.url,
     this.photoUrl,
-    this.latLng
+    this.latLng,
   });
 
   final String name;
@@ -17,4 +26,28 @@ class AustinFeedsMeEvent {
   final String url;
   final String photoUrl;
   final LatLng latLng;
+
+  Map toMap() {
+    Map<String, dynamic> map = {
+      columnName: name,
+      columnTime: time,
+      columnDescription: description,
+      columnUrl: url,
+      columnPhotoUrl: photoUrl,
+      columnLat: latLng.latitude,
+      columnLng: latLng.longitude
+    };
+
+    return map;
+  }
+
+  AustinFeedsMeEvent fromMap(Map map) {
+    return new AustinFeedsMeEvent(
+     name: map[columnId],
+    time: map[columnTime],
+    description: map[columnDescription],
+    url: map[columnUrl],
+    photoUrl: map[columnPhotoUrl],
+    latLng: new LatLng(map[columnLat], map[columnLng]));
+  }
 }

@@ -3,17 +3,40 @@ import 'dart:async';
 import 'package:austin_feeds_me/model/austin_feeds_me_event.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:latlong/latlong.dart';
+import 'package:austin_feeds_me/data/event_database.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class EventRepository {
+
+  static const EVENT_TABLE_NAME = "event";
+  static const String KEY_LAST_FETCH = "last_fetch";
+  static const int SECONDS_IN_HOUR = 3600;
+  static const int REFRESH_THRESHOLD = 3 * SECONDS_IN_HOUR;
+
   static Future<List<AustinFeedsMeEvent>> getEvents() async {
     List<AustinFeedsMeEvent> events = [];
 
+    if (await _shouldRefreshLocalEvents()) {
+      events = await _getEventsFromFirestore();
+      _setLastRefreshToNow();
+      _persistEventsInDatabase(events);
+    } else {
+      Database dbClient = await EventsDatabase().db;
+      dbClient.query("Events");
+    }
+
+    return events;
+  }
+
+  static Future<List<AustinFeedsMeEvent>> _getEventsFromFirestore() async {
     CollectionReference ref = Firestore.instance.collection('events');
     QuerySnapshot eventsQuery = await ref
         .where("time", isGreaterThan: new DateTime.now().millisecondsSinceEpoch)
         .where("food", isEqualTo: true)
         .getDocuments();
-    events = eventsQuery.documents.map((document) {
+
+    var firestoreEvents = eventsQuery.documents.map((document) {
       return new AustinFeedsMeEvent(
           name: document['name'],
           time: document['time'],
@@ -23,7 +46,7 @@ class EventRepository {
           latLng: _getLatLng(document));
     }).toList();
 
-    return events;
+    return firestoreEvents;
   }
 
   static String _getEventPhotoUrl(Map<dynamic, dynamic> data) {
@@ -55,4 +78,32 @@ class EventRepository {
     return new LatLng(
         double.parse(venueObject['lat']), double.parse(venueObject['lon']));
   }
+
+  static Future<bool> _shouldRefreshLocalEvents() async {
+    Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+    SharedPreferences prefs = await _prefs;
+    int lastFetchTimeStamp = prefs.getInt(KEY_LAST_FETCH);
+
+    if (lastFetchTimeStamp == null) {
+      return true;
+    }
+
+    return( new DateTime.now().millisecondsSinceEpoch - lastFetchTimeStamp) > (REFRESH_THRESHOLD);
+  }
+
+  static void _setLastRefreshToNow() async {
+    Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+    SharedPreferences prefs = await _prefs;
+    prefs.setInt(KEY_LAST_FETCH, new DateTime.now().millisecondsSinceEpoch);
+  }
+
+  static void _persistEventsInDatabase(List<AustinFeedsMeEvent> events) async {
+    Database dbClient = await EventsDatabase().db;
+
+    events.forEach((event) async {
+      int eventId = await dbClient.insert(EVENT_TABLE_NAME, event.toMap());
+      print(eventId.toString());
+    });
+  }
+
 }
