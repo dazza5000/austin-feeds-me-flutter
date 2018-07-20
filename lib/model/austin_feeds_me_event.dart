@@ -43,7 +43,7 @@ class AustinFeedsMeEvent {
 
   static AustinFeedsMeEvent fromMap(Map map) {
     return new AustinFeedsMeEvent(
-        name: map[columnId],
+        name: map[columnName],
         time: map[columnTime],
         description: map[columnDescription],
         url: map[columnUrl],
