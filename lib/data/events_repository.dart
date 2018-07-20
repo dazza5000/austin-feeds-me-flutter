@@ -22,8 +22,7 @@ class EventRepository {
       _setLastRefreshToNow();
       _persistEventsInDatabase(events);
     } else {
-      Database dbClient = await EventsDatabase().db;
-      dbClient.query("Events");
+      events = await _getEventsFromDatabase();
     }
 
     return events;
@@ -47,6 +46,12 @@ class EventRepository {
     }).toList();
 
     return firestoreEvents;
+  }
+
+  static Future<List<AustinFeedsMeEvent>> _getEventsFromDatabase() async {
+    Database dbClient = await EventsDatabase().db;
+    List<Map<String, dynamic>> eventRecords = await dbClient.query(EVENT_TABLE_NAME);
+    return eventRecords.map((record) => AustinFeedsMeEvent.fromMap(record)).toList();
   }
 
   static String _getEventPhotoUrl(Map<dynamic, dynamic> data) {
@@ -99,6 +104,8 @@ class EventRepository {
 
   static void _persistEventsInDatabase(List<AustinFeedsMeEvent> events) async {
     Database dbClient = await EventsDatabase().db;
+
+    dbClient.delete(EVENT_TABLE_NAME);
 
     events.forEach((event) async {
       int eventId = await dbClient.insert(EVENT_TABLE_NAME, event.toMap());

@@ -2,14 +2,14 @@ import 'package:latlong/latlong.dart';
 import 'package:meta/meta.dart';
 
 class AustinFeedsMeEvent {
-  final String columnId = "_id";
-  final String columnName = "name";
-  final String columnTime = "time";
-  final String columnDescription = "description";
-  final String columnUrl = "url";
-  final String columnPhotoUrl = "photo";
-  final String columnLat = "lat";
-  final String columnLng = "lng";
+  static final String columnId = "_id";
+  static final String columnName = "name";
+  static final String columnTime = "time";
+  static final String columnDescription = "description";
+  static final String columnUrl = "url";
+  static final String columnPhotoUrl = "photo";
+  static final String columnLat = "lat";
+  static final String columnLng = "lng";
 
   AustinFeedsMeEvent({
     @required this.name,
@@ -41,13 +41,13 @@ class AustinFeedsMeEvent {
     return map;
   }
 
-  AustinFeedsMeEvent fromMap(Map map) {
+  static AustinFeedsMeEvent fromMap(Map map) {
     return new AustinFeedsMeEvent(
-     name: map[columnId],
-    time: map[columnTime],
-    description: map[columnDescription],
-    url: map[columnUrl],
-    photoUrl: map[columnPhotoUrl],
-    latLng: new LatLng(map[columnLat], map[columnLng]));
+        name: map[columnId],
+        time: map[columnTime],
+        description: map[columnDescription],
+        url: map[columnUrl],
+        photoUrl: map[columnPhotoUrl],
+        latLng: new LatLng(map[columnLat], map[columnLng]));
   }
 }
