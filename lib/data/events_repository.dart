@@ -11,8 +11,8 @@ class EventRepository {
 
   static const EVENT_TABLE_NAME = "event";
   static const String KEY_LAST_FETCH = "last_fetch";
-  static const int SECONDS_IN_HOUR = 3600;
-  static const int REFRESH_THRESHOLD = 3 * SECONDS_IN_HOUR;
+  static const int MILLISECONDS_IN_HOUR = 3600000;
+  static const int REFRESH_THRESHOLD = 3 * MILLISECONDS_IN_HOUR;
 
   static Future<List<AustinFeedsMeEvent>> getEvents() async {
     List<AustinFeedsMeEvent> events = [];
@@ -96,10 +96,11 @@ class EventRepository {
     int lastFetchTimeStamp = prefs.getInt(KEY_LAST_FETCH);
 
     if (lastFetchTimeStamp == null) {
+      print("last timestamp is null");
       return true;
     }
 
-    return( new DateTime.now().millisecondsSinceEpoch - lastFetchTimeStamp) > (REFRESH_THRESHOLD);
+    return(new DateTime.now().millisecondsSinceEpoch - lastFetchTimeStamp) > (REFRESH_THRESHOLD);
   }
 
   static void _setLastRefreshToNow() async {
