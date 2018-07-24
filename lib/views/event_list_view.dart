@@ -34,7 +34,7 @@ class _EventListViewState extends State<EventListView> {
     return new Scaffold(
       body: new Container(
           child: events.length == 0
-              ? new Center(child: new Text('Loading...'))
+              ? new Center(child: new CircularProgressIndicator())
               : new ListView.builder(
                   padding: const EdgeInsets.all(16.0),
                   itemCount: events.length,
