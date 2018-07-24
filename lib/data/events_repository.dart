@@ -51,12 +51,6 @@ class EventRepository {
   static Future<List<AustinFeedsMeEvent>> _getEventsFromDatabase() async {
     Database dbClient = await EventsDatabase().db;
     List<Map<String, dynamic>> eventRecords = await dbClient.query(EVENT_TABLE_NAME);
-    eventRecords.forEach((f) {
-      List<String> keys = f.keys;
-      keys.forEach((key) {
-        print("key: " + key + " value: " + f[key].toString());
-      });
-    });
     return eventRecords.map((record) => AustinFeedsMeEvent.fromMap(record)).toList();
   }
 
