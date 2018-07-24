@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: cirrusci/flutter
+    steps:
+      - checkout
+      - run:
+          name: Get properties
+          command: |
+                  wget $GOOGLESERVICESJSON -P android/app
+      - run: flutter doctor
+      - run: flutter test
+      - run: flutter -v build apk
