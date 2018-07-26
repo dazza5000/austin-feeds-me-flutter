@@ -1,10 +1,10 @@
 # Flutter Feeds Me #FlutterDev
 
-The app helps you find free food in Austin.
+Flutter Feeds Me helps you find free food in Austin.
 
-The app uses Cloud Firestore, Sqlite, and CircleCI.
+Cloud Firestore, Sqlite, and CircleCI are some of the technologies utilized in Flutter Feeds Me.
 
-I made some videos during some parts of the development that are available here:
+Videos showing some parts of the development are available here:
 
 https://www.youtube.com/user/darranx
 
