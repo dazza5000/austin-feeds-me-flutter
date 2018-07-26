@@ -9,3 +9,5 @@ build/
 .flutter-plugins
 
 android/app/google-services.json
+
+.idea/
