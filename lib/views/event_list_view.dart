@@ -34,7 +34,7 @@ class _EventListViewState extends State<EventListView> {
     return new Scaffold(
       body: new Container(
           child: events.length == 0
-              ? new Center(child: new Text('Loading...'))
+              ? new Center(child: new CircularProgressIndicator())
               : new ListView.builder(
                   padding: const EdgeInsets.all(16.0),
                   itemCount: events.length,
@@ -52,13 +52,13 @@ class _EventListViewState extends State<EventListView> {
 
     return new GestureDetector(
         child: new Card(
-            child: new Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
+            child: new Row(mainAxisSize: MainAxisSize.max, children: <Widget>[
           Padding(
             padding: EdgeInsets.only(
               left: 8.0,
             ),
           ),
-          new Column(children: <Widget>[
+          new Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
             Padding(
               padding: EdgeInsets.only(
                 top: 8.0,
@@ -75,31 +75,32 @@ class _EventListViewState extends State<EventListView> {
             padding: EdgeInsets.only(left: 8.0),
           ),
           new Expanded(
-            child: new Text(
-              event.name,
-              style: TextStyle(
-                fontSize: 18.0,
-              ),
-            ),
-          ),
-          new SizedBox(
-              width: 100.0,
-              child: new Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
+              child:
+                  new Column(mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+            new Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   new Text(date,
                       style: TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 14.0,
                       )),
+                  new SizedBox(width: 4.0),
                   new Text(time,
                       style: TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 14.0,
                       )),
-                ],
-              )),
-          Padding(
-            padding: EdgeInsets.only(right: 8.0),
-          ),
+                ]),
+            new SizedBox(height: 4.0),
+            new Text(event.name,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontSize: 18.0,
+              ),
+            )
+          ]))
         ])),
         onTap: () => eventTapped(event));
   }
