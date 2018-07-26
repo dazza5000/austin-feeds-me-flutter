@@ -32,9 +32,9 @@ android {
     }
 
     def keystorePropertiesFile = rootProject.file("key.properties")
-    def keystoreProperties = new Properties()
     if (keystorePropertiesFile.exists()) {
 
+        def keystoreProperties = new Properties()
         keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
         signingConfigs {
