@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:austin_feeds_me/util/color_util.dart';
 
 String colorPrimary = "#3F51B5";
+String appName = "Flutter Feeds Me #FlutterDev";
 
 void main() {
   runApp(new AustinFeedsMeApp());
@@ -12,9 +13,9 @@ class AustinFeedsMeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Austin Feeds Me',
+      title: appName,
       theme: _austinFeedsMeTheme,
-      home: new HomeView(title: "Austin Feeds Me"),
+      home: new HomeView(title: appName),
     );
   }
 }

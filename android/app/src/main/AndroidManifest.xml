@@ -14,7 +14,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="Austin Feeds Me #FlutterDev"
+        android:label="Flutter Feeds Me #FlutterDev"
         android:icon="@drawable/ic_logo">
         <activity
             android:name=".MainActivity"
