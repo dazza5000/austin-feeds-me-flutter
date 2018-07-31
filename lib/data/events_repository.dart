@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:collection'
 
 import 'package:austin_feeds_me/model/austin_feeds_me_event.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -6,6 +7,7 @@ import 'package:latlong/latlong.dart';
 import 'package:austin_feeds_me/data/event_database.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+;
 
 class EventRepository {
 
@@ -35,17 +37,21 @@ class EventRepository {
         .where("food", isEqualTo: true)
         .getDocuments();
 
-    var firestoreEvents = eventsQuery.documents.map((document) {
-      return new AustinFeedsMeEvent(
+    HashMap<String, AustinFeedsMeEvent> eventsHashMap = new HashMap<String, AustinFeedsMeEvent>();
+
+    eventsQuery.documents.forEach((document) {
+      AustinFeedsMeEvent austinFeedsMeEvent = new AustinFeedsMeEvent(
           name: document['name'],
           time: document['time'],
           description: document['description'],
           url: document['event_url'],
           photoUrl: _getEventPhotoUrl(document['group']),
           latLng: _getLatLng(document));
-    }).toList();
 
-    return firestoreEvents;
+      eventsHashMap.putIfAbsent(document['id'], () => austinFeedsMeEvent);
+    });
+
+    return eventsHashMap.values;
   }
 
   static Future<List<AustinFeedsMeEvent>> _getEventsFromDatabase() async {
