@@ -40,15 +40,13 @@ class EventRepository {
     HashMap<String, AustinFeedsMeEvent> eventsHashMap = new HashMap<String, AustinFeedsMeEvent>();
 
     eventsQuery.documents.forEach((document) {
-      AustinFeedsMeEvent austinFeedsMeEvent = new AustinFeedsMeEvent(
+      eventsHashMap.putIfAbsent(document['id'], () => new AustinFeedsMeEvent(
           name: document['name'],
           time: document['time'],
           description: document['description'],
           url: document['event_url'],
           photoUrl: _getEventPhotoUrl(document['group']),
-          latLng: _getLatLng(document));
-
-      eventsHashMap.putIfAbsent(document['id'], () => austinFeedsMeEvent);
+          latLng: _getLatLng(document)));
     });
 
     return eventsHashMap.values;
