@@ -69,8 +69,10 @@ class _Maps extends State<EventMapView> {
               child: new Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  ImageUtil.getEventImageWidget(
-                      austinFeedsMeEvent, 400.0, 200.0),
+                  new ClipRRect(
+                    borderRadius: new BorderRadius.circular(8.0),
+                child: ImageUtil.getEventImageWidget(
+                      austinFeedsMeEvent, 400.0, 200.0),),
                   Padding(
                     padding: EdgeInsets.only(
                       top: 8.0,
@@ -102,7 +104,7 @@ class _Maps extends State<EventMapView> {
                     style: const TextStyle(fontSize: 18.0),
                   ),
                   new FlatButton(onPressed: () => UrlUtil.launchURL(austinFeedsMeEvent.url),
-                      child: new Text("RSVP"),
+                      child: new Text("RSVP", style: const TextStyle(fontSize: 18.0)),
                   color: Colors.lightBlue,)
                 ],
               ));
