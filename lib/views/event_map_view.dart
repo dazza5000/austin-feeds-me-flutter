@@ -64,9 +64,12 @@ class _Maps extends State<EventMapView> {
   onEventClick(AustinFeedsMeEvent austinFeedsMeEvent) {
     showModalBottomSheet(context: context, builder: (context){
       return new Column(children: <Widget>[
+        ImageUtil.getEventImageWidget(austinFeedsMeEvent, 200.0, 77.0),
         new Text(EventUtil.getEventDateAndTimeDisplayText(austinFeedsMeEvent)),
         new Text(austinFeedsMeEvent.name),
-        new Text(austinFeedsMeEvent.description),
+        new Text(austinFeedsMeEvent.description,
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,),
         new Text(austinFeedsMeEvent.url)]);
     });
   }

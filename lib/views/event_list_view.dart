@@ -1,6 +1,5 @@
 import 'package:austin_feeds_me/model/austin_feeds_me_event.dart';
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:austin_feeds_me/data/events_repository.dart';
 import 'package:austin_feeds_me/util/url_util.dart';
 import 'package:austin_feeds_me/util/image_util.dart';
@@ -60,7 +59,7 @@ class _EventListViewState extends State<EventListView> {
                 top: 8.0,
               ),
             ),
-            getEventImageWidget(event),
+            ImageUtil.getEventImageWidget(event, 77.0, 77.0),
             Padding(
               padding: EdgeInsets.only(
                 bottom: 8.0,
@@ -71,45 +70,28 @@ class _EventListViewState extends State<EventListView> {
             padding: EdgeInsets.only(left: 8.0),
           ),
           new Expanded(
-              child:
-                  new Column(mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                  new Text(EventUtil.getEventDateAndTimeDisplayText(event),
-                      style: TextStyle(
-                        fontSize: 14.0,
-                      ),),
-            new SizedBox(height: 4.0),
-            new Text(event.name,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 18.0,
-              ),
-            )
-          ]))
+              child: new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                new Text(
+                  EventUtil.getEventDateAndTimeDisplayText(event),
+                  style: TextStyle(
+                    fontSize: 14.0,
+                  ),
+                ),
+                new SizedBox(height: 4.0),
+                new Text(
+                  event.name,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 18.0,
+                  ),
+                )
+              ]))
         ])),
         onTap: () => eventTapped(event));
-  }
-
-  Widget getEventImageWidget(AustinFeedsMeEvent event) {
-    return event.photoUrl.isNotEmpty
-        ? new CachedNetworkImage(
-            imageUrl: event.photoUrl,
-            placeholder: Image.asset(
-              ImageUtil.getAppLogo(),
-              width: 77.0,
-              height: 77.0,
-            ),
-            errorWidget: new Icon(Icons.error),
-            width: 77.0,
-            height: 77.0,
-          )
-        : Image.asset(
-            ImageUtil.getAppLogo(),
-            width: 77.0,
-            height: 77.0,
-          );
   }
 
   eventTapped(AustinFeedsMeEvent event) {
