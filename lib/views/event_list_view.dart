@@ -126,6 +126,9 @@ class _EventListViewState extends State<EventListView> {
   }
 
   eventTapped(AustinFeedsMeEvent event) {
-    UrlUtil.launchURL(event.url);
+//    UrlUtil.launchURL(event.url);
+    showModalBottomSheet(context: context, builder: (context){
+      return const Text("showModalBottomSheet");
+  });
   }
 }
