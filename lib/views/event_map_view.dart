@@ -103,6 +103,11 @@ class _Maps extends State<EventMapView> {
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(fontSize: 18.0),
                   ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: 8.0,
+                    ),
+                  ),
                   new FlatButton(onPressed: () => UrlUtil.launchURL(austinFeedsMeEvent.url),
                       child: new Text("RSVP", style: const TextStyle(fontSize: 18.0)),
                   color: Colors.lightBlue,)
