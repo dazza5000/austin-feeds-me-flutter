@@ -1,10 +1,10 @@
 import 'package:austin_feeds_me/model/austin_feeds_me_event.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:austin_feeds_me/data/events_repository.dart';
 import 'package:austin_feeds_me/util/url_util.dart';
 import 'package:austin_feeds_me/util/image_util.dart';
+import 'package:austin_feeds_me/util/event_util.dart';
 
 class EventListView extends StatefulWidget {
   @override
@@ -46,10 +46,6 @@ class _EventListViewState extends State<EventListView> {
   }
 
   Widget _buildRow(AustinFeedsMeEvent event) {
-    DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(event.time);
-    String date = new DateFormat.MMMMd().format(dateTime);
-    String time = new DateFormat.jm().format(dateTime);
-
     return new GestureDetector(
         child: new Card(
             child: new Row(mainAxisSize: MainAxisSize.max, children: <Widget>[
@@ -79,19 +75,10 @@ class _EventListViewState extends State<EventListView> {
                   new Column(mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-            new Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  new Text(date,
+                  new Text(EventUtil.getEventDateAndTimeDisplayText(event),
                       style: TextStyle(
                         fontSize: 14.0,
-                      )),
-                  new SizedBox(width: 4.0),
-                  new Text(time,
-                      style: TextStyle(
-                        fontSize: 14.0,
-                      )),
-                ]),
+                      ),),
             new SizedBox(height: 4.0),
             new Text(event.name,
               maxLines: 2,
@@ -126,9 +113,6 @@ class _EventListViewState extends State<EventListView> {
   }
 
   eventTapped(AustinFeedsMeEvent event) {
-//    UrlUtil.launchURL(event.url);
-    showModalBottomSheet(context: context, builder: (context){
-      return const Text("showModalBottomSheet");
-  });
+    UrlUtil.launchURL(event.url);
   }
 }

@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong/latlong.dart';
 import 'package:austin_feeds_me/util/url_util.dart';
+import 'package:austin_feeds_me/util/event_util.dart';
+
 
 class EventMapView extends StatefulWidget {
   EventMapView({Key key}) : super(key: key);
@@ -33,7 +35,7 @@ class _Maps extends State<EventMapView> {
                     width: 30.0,
                     height: 30.0,
                   ),
-                  onTap: () => UrlUtil.launchURL(currentEvent.url),
+                  onTap: () => onEventClick(currentEvent),
                 ));
         markers.add(currentMarker);
       }
@@ -57,5 +59,15 @@ class _Maps extends State<EventMapView> {
           ),
           new MarkerLayerOptions(markers: markers)
         ]);
+  }
+
+  onEventClick(AustinFeedsMeEvent austinFeedsMeEvent) {
+    showModalBottomSheet(context: context, builder: (context){
+      return new Column(children: <Widget>[
+        new Text(EventUtil.getEventDateAndTimeDisplayText(austinFeedsMeEvent)),
+        new Text(austinFeedsMeEvent.name),
+        new Text(austinFeedsMeEvent.description),
+        new Text(austinFeedsMeEvent.url)]);
+    });
   }
 }
