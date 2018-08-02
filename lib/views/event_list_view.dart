@@ -61,7 +61,7 @@ class _EventListViewState extends State<EventListView> {
             ),
             new ClipRRect(
                 borderRadius: new BorderRadius.circular(4.0),
-            child: ImageUtil.getEventImageWidget(event, 77.0, 77.0),),
+            child: ImageUtil.getEventImageWidget(event, 80.0, 80.0),),
             Padding(
               padding: EdgeInsets.only(
                 bottom: 8.0,
