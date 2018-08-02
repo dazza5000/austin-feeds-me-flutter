@@ -7,7 +7,6 @@ import 'package:latlong/latlong.dart';
 import 'package:austin_feeds_me/util/url_util.dart';
 import 'package:austin_feeds_me/util/event_util.dart';
 
-
 class EventMapView extends StatefulWidget {
   EventMapView({Key key}) : super(key: key);
 
@@ -62,15 +61,49 @@ class _Maps extends State<EventMapView> {
   }
 
   onEventClick(AustinFeedsMeEvent austinFeedsMeEvent) {
-    showModalBottomSheet(context: context, builder: (context){
-      return new Column(children: <Widget>[
-        ImageUtil.getEventImageWidget(austinFeedsMeEvent, 200.0, 77.0),
-        new Text(EventUtil.getEventDateAndTimeDisplayText(austinFeedsMeEvent)),
-        new Text(austinFeedsMeEvent.name),
-        new Text(austinFeedsMeEvent.description,
-        maxLines: 2,
-        overflow: TextOverflow.ellipsis,),
-        new Text(austinFeedsMeEvent.url)]);
-    });
+    showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return new Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: new Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  ImageUtil.getEventImageWidget(
+                      austinFeedsMeEvent, 400.0, 77.0),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: 8.0,
+                    ),
+                  ),
+                  new Text(
+                    EventUtil
+                        .getEventDateAndTimeDisplayText(austinFeedsMeEvent),
+                    style: const TextStyle(fontSize: 18.0),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: 8.0,
+                    ),
+                  ),
+                  new Text(
+                    austinFeedsMeEvent.name,
+                    style: const TextStyle(fontSize: 18.0),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: 8.0,
+                    ),
+                  ),
+                  new Text(
+                    austinFeedsMeEvent.description,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(fontSize: 18.0),
+                  ),
+                  new FlatButton(onPressed: () => UrlUtil.launchURL(austinFeedsMeEvent.url), child: new Text("RSVP"))
+                ],
+              ));
+        });
   }
 }
