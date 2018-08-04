@@ -67,12 +67,12 @@ class _Maps extends State<EventMapView> {
           return new Padding(
               padding: const EdgeInsets.all(8.0),
               child: new Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  new ClipRRect(
-                    borderRadius: new BorderRadius.circular(8.0),
+                  new Expanded(
                 child: ImageUtil.getEventImageWidget(
-                      austinFeedsMeEvent, 400.0, 200.0),),
+                      austinFeedsMeEvent, 1000.0, 1000.0),),
                   Padding(
                     padding: EdgeInsets.only(
                       top: 8.0,
