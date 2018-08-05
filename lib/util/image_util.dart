@@ -10,6 +10,7 @@ class ImageUtil {
   static Widget getEventImageWidget(AustinFeedsMeEvent event, double width, double height) {
     return event.photoUrl.isNotEmpty
         ? new CachedNetworkImage(
+      fit: BoxFit.fitWidth,
       imageUrl: event.photoUrl,
       placeholder: Image.asset(
         ImageUtil.getAppLogo(),

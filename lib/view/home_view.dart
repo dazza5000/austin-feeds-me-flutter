@@ -1,5 +1,5 @@
-import 'package:austin_feeds_me/views/event_list_view.dart';
-import 'package:austin_feeds_me/views/event_map_view.dart';
+import 'package:austin_feeds_me/view/event_list_view.dart';
+import 'package:austin_feeds_me/view/event_map_view.dart';
 import 'package:flutter/material.dart';
 
 

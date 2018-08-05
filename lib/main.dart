@@ -1,4 +1,4 @@
-import 'package:austin_feeds_me/views/home_view.dart';
+import 'package:austin_feeds_me/view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:austin_feeds_me/util/color_util.dart';
 

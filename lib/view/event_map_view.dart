@@ -72,7 +72,7 @@ class _Maps extends State<EventMapView> {
                 children: <Widget>[
                   new Expanded(
                 child: ImageUtil.getEventImageWidget(
-                      austinFeedsMeEvent, 1000.0, 1000.0),),
+                      austinFeedsMeEvent, double.infinity, double.infinity),),
                   Padding(
                     padding: EdgeInsets.only(
                       top: 8.0,
