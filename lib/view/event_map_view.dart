@@ -70,9 +70,12 @@ class _Maps extends State<EventMapView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  new Expanded(
-                child: ImageUtil.getEventImageWidget(
-                      austinFeedsMeEvent, double.infinity, double.infinity),),
+                  new Row(
+                    children: <Widget>[new Expanded(
+                      child: ImageUtil.getEventImageWidget(
+                          austinFeedsMeEvent, 700.0, 200.0),
+                    )],
+                  ),
                   Padding(
                     padding: EdgeInsets.only(
                       top: 8.0,
@@ -108,9 +111,12 @@ class _Maps extends State<EventMapView> {
                       top: 8.0,
                     ),
                   ),
-                  new FlatButton(onPressed: () => UrlUtil.launchURL(austinFeedsMeEvent.url),
-                      child: new Text("RSVP", style: const TextStyle(fontSize: 18.0)),
-                  color: Colors.lightBlue,)
+                  new FlatButton(
+                    onPressed: () => UrlUtil.launchURL(austinFeedsMeEvent.url),
+                    child: new Text("RSVP",
+                        style: const TextStyle(fontSize: 18.0)),
+                    color: Colors.lightBlue,
+                  )
                 ],
               ));
         });
