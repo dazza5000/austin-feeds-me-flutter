@@ -38,7 +38,7 @@ class _EventListViewState extends State<EventListView> {
                   separatorBuilder: (context, index) => Divider(
                         color: Colors.black,
                       ),
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(8.0),
                   itemCount: events.length,
                   itemBuilder: (_, index) {
                     return _buildRow(events[index]);
@@ -51,19 +51,9 @@ class _EventListViewState extends State<EventListView> {
     return new GestureDetector(
         child: new Row(mainAxisSize: MainAxisSize.max, children: <Widget>[
           new Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(
-                top: 8.0,
-              ),
-            ),
             new ClipRRect(
               borderRadius: new BorderRadius.circular(4.0),
               child: ImageUtil.getEventImageWidget(event, 80.0, 80.0),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                bottom: 8.0,
-              ),
             ),
           ]),
           Padding(
@@ -86,7 +76,7 @@ class _EventListViewState extends State<EventListView> {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: 18.0,
+                    fontSize: 16.0,
                   ),
                 )
               ]))
