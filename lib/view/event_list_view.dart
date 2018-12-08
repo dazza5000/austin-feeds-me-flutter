@@ -34,7 +34,10 @@ class _EventListViewState extends State<EventListView> {
       body: new Container(
           child: events.length == 0
               ? new Center(child: new CircularProgressIndicator())
-              : new ListView.builder(
+              : new ListView.separated(
+                  separatorBuilder: (context, index) => Divider(
+                        color: Colors.black,
+                      ),
                   padding: const EdgeInsets.all(16.0),
                   itemCount: events.length,
                   itemBuilder: (_, index) {
@@ -46,13 +49,7 @@ class _EventListViewState extends State<EventListView> {
 
   Widget _buildRow(AustinFeedsMeEvent event) {
     return new GestureDetector(
-        child: new Card(
-            child: new Row(mainAxisSize: MainAxisSize.max, children: <Widget>[
-          Padding(
-            padding: EdgeInsets.only(
-              left: 8.0,
-            ),
-          ),
+        child: new Row(mainAxisSize: MainAxisSize.max, children: <Widget>[
           new Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
             Padding(
               padding: EdgeInsets.only(
@@ -60,8 +57,9 @@ class _EventListViewState extends State<EventListView> {
               ),
             ),
             new ClipRRect(
-                borderRadius: new BorderRadius.circular(4.0),
-            child: ImageUtil.getEventImageWidget(event, 80.0, 80.0),),
+              borderRadius: new BorderRadius.circular(4.0),
+              child: ImageUtil.getEventImageWidget(event, 80.0, 80.0),
+            ),
             Padding(
               padding: EdgeInsets.only(
                 bottom: 8.0,
@@ -92,7 +90,7 @@ class _EventListViewState extends State<EventListView> {
                   ),
                 )
               ]))
-        ])),
+        ]),
         onTap: () => eventTapped(event));
   }
 
