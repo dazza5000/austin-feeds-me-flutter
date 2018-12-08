@@ -9,8 +9,7 @@ jobs:
           name: Get properties
           command: |
                   wget $GOOGLESERVICESJSON -P android/app
-      - run: flutter doctor
-      - run: git remote -v
       - run: flutter channel stable
+      - run: flutter doctor
       - run: flutter test
       - run: flutter -v build apk --debug

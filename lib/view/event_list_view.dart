@@ -38,7 +38,6 @@ class _EventListViewState extends State<EventListView> {
                   separatorBuilder: (context, index) => Divider(
                         color: Colors.black,
                       ),
-                  padding: const EdgeInsets.all(8.0),
                   itemCount: events.length,
                   itemBuilder: (_, index) {
                     return _buildRow(events[index]);
@@ -49,38 +48,43 @@ class _EventListViewState extends State<EventListView> {
 
   Widget _buildRow(AustinFeedsMeEvent event) {
     return new GestureDetector(
-        child: new Row(mainAxisSize: MainAxisSize.max, children: <Widget>[
-          new Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-            new ClipRRect(
-              borderRadius: new BorderRadius.circular(4.0),
-              child: ImageUtil.getEventImageWidget(event, 80.0, 80.0),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: new Row(
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+            new Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+              new ClipRRect(
+                borderRadius: new BorderRadius.circular(4.0),
+                child: ImageUtil.getEventImageWidget(event, 80.0, 80.0),
+              ),
+            ]),
+            Padding(
+              padding: EdgeInsets.only(left: 8.0),
             ),
+            new Expanded(
+                child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                  new Text(
+                    EventUtil.getEventDateAndTimeDisplayText(event),
+                    style: TextStyle(
+                      fontSize: 14.0,
+                    ),
+                  ),
+                  new SizedBox(height: 4.0),
+                  new Text(
+                    event.name,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 16.0,
+                    ),
+                  )
+                ]))
           ]),
-          Padding(
-            padding: EdgeInsets.only(left: 8.0),
-          ),
-          new Expanded(
-              child: new Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                new Text(
-                  EventUtil.getEventDateAndTimeDisplayText(event),
-                  style: TextStyle(
-                    fontSize: 14.0,
-                  ),
-                ),
-                new SizedBox(height: 4.0),
-                new Text(
-                  event.name,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 16.0,
-                  ),
-                )
-              ]))
-        ]),
+        ),
         onTap: () => eventTapped(event));
   }
 
