@@ -4,10 +4,10 @@ description: A new Flutter application.
 dependencies:
   flutter:
     sdk: flutter
-  cloud_firestore: "^0.7.3"
-  url_launcher: ^3.0.2
+  cloud_firestore: ^0.8.2+3
+  url_launcher: ^4.0.2
   intl: ^0.15.6
-  flutter_map: "^0.0.11"
+  flutter_map: ^0.1.4
   cached_network_image: "^0.4.1+1"
   sqflite: any
   shared_preferences: "^0.4.2"
@@ -21,7 +21,7 @@ dev_dependencies:
     sdk: flutter
 
 
-# For information on the generic Dart part of this file, see the
+# For information on the generic Dart part of this file,p see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
 
 # The following section is specific to Flutter.
