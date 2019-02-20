@@ -12,12 +12,12 @@ class ImageUtil {
         ? new CachedNetworkImage(
       fit: BoxFit.fitWidth,
       imageUrl: event.photoUrl,
-      placeholder: Image.asset(
+      placeholder: (context, url) => Image.asset(
         ImageUtil.getAppLogo(),
         width: width,
         height: height,
       ),
-      errorWidget: new Icon(Icons.error),
+      errorWidget: (context, url, error) => new Icon(Icons.error),
       width: width,
       height: height,
     )
