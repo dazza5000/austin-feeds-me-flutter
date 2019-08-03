@@ -1,9 +1,10 @@
+import 'dart:async';
+
 import 'package:austin_feeds_me/data/events_repository.dart';
 import 'package:austin_feeds_me/model/austin_feeds_me_event.dart';
 import 'package:austin_feeds_me/util/image_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
-import 'package:latlong/latlong.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:austin_feeds_me/util/url_util.dart';
 import 'package:austin_feeds_me/util/event_util.dart';
 
@@ -15,27 +16,28 @@ class EventMapView extends StatefulWidget {
 }
 
 class _Maps extends State<EventMapView> {
-  List<Marker> markers = [];
+  Set<Marker> markers = Set();
+  Completer<GoogleMapController> _controller = Completer();
+
+  static final CameraPosition initialMapPosition = CameraPosition(
+    target: LatLng(30.26, -97.7),
+    zoom: 14.4746,
+  );
 
   @override
   void initState() {
     super.initState();
 
     EventRepository.getEvents().then((List<AustinFeedsMeEvent> events) {
-      List<Marker> markers = [];
+      Set<Marker> markers = Set();
       for (var currentEvent in events) {
+
         Marker currentMarker = new Marker(
-            width: 30.0,
-            height: 30.0,
-            point: currentEvent.latLng,
-            builder: (ctx) => new GestureDetector(
-                  child: Image.asset(
-                    ImageUtil.getAppLogo(),
-                    width: 30.0,
-                    height: 30.0,
-                  ),
-                  onTap: () => onEventClick(currentEvent),
-                ));
+          markerId: new MarkerId(currentEvent.hashCode.toString()),
+          position: currentEvent.latLng,
+          onTap: () => onEventClick(currentEvent),
+        );
+
         markers.add(currentMarker);
       }
       setState(() {
@@ -46,18 +48,14 @@ class _Maps extends State<EventMapView> {
 
   @override
   Widget build(BuildContext context) {
-    return new FlutterMap(
-        options: new MapOptions(
-          center: new LatLng(30.2669444, -97.7427778),
-          zoom: 12.0,
-        ),
-        layers: [
-          new TileLayerOptions(
-            urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-            subdomains: ['a', 'b', 'c'],
-          ),
-          new MarkerLayerOptions(markers: markers)
-        ]);
+    return new GoogleMap(
+      mapType: MapType.normal,
+      markers: markers,
+      initialCameraPosition: initialMapPosition,
+      onMapCreated: (GoogleMapController controller) {
+        _controller.complete(controller);
+      },
+    );
   }
 
   onEventClick(AustinFeedsMeEvent austinFeedsMeEvent) {
@@ -70,11 +68,9 @@ class _Maps extends State<EventMapView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  new Row(
-                    children: <Widget>[new Expanded(
-                      child: ImageUtil.getEventImageWidget(
-                          austinFeedsMeEvent, 700.0, 200.0),
-                    )],
+                new Expanded(
+                    child: ImageUtil.getEventImageWidget(
+                        austinFeedsMeEvent, 1000.0, 1000.0),
                   ),
                   Padding(
                     padding: EdgeInsets.only(
@@ -82,8 +78,8 @@ class _Maps extends State<EventMapView> {
                     ),
                   ),
                   new Text(
-                    EventUtil
-                        .getEventDateAndTimeDisplayText(austinFeedsMeEvent),
+                    EventUtil.getEventDateAndTimeDisplayText(
+                        austinFeedsMeEvent),
                     style: const TextStyle(fontSize: 18.0),
                   ),
                   Padding(

@@ -3,8 +3,8 @@ import 'dart:collection';
 
 import 'package:austin_feeds_me/model/austin_feeds_me_event.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:latlong/latlong.dart';
 import 'package:austin_feeds_me/data/event_database.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
