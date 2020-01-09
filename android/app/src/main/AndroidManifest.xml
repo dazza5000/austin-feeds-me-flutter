@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
     package="com.whereisdarran.austinfeedsme">
 
     <!-- The INTERNET permission is required for development. Specifically,
@@ -15,7 +15,9 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="Flutter Feeds Me #FlutterDev"
-        android:icon="@drawable/ic_logo">
+        android:icon="@drawable/ic_logo"
+        tools:replace="android:appComponentFactory"
+        android:appComponentFactory="androidx">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
