@@ -8,7 +8,7 @@ dependencies:
   url_launcher: ^3.0.2
   intl: ^0.15.6
   google_maps_flutter: ^0.5.20+1
-  cached_network_image: "^0.8.0"
+  cached_network_image: ^2.0.0
   sqflite: any
   shared_preferences: "^0.4.2"
 
